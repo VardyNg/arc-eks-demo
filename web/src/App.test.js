@@ -10,6 +10,7 @@ test('renders the main heading', () => {
 
 test('renders runner info list', () => {
   render(<App />);
-  expect(screen.getByText(/spot instances/i)).toBeInTheDocument();
+  const spotItems = screen.getAllByText(/spot instances/i);
+  expect(spotItems.length).toBeGreaterThanOrEqual(1);
   expect(screen.getByText(/on-demand instances/i)).toBeInTheDocument();
 });
