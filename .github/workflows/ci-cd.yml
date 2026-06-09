@@ -15,7 +15,7 @@ concurrency:
 jobs:
   test-and-lint:
     name: Test & Lint
-    runs-on: arc-runner-spot-x86
+    runs-on: arc-runner-x86-spot
     defaults:
       run:
         working-directory: web
@@ -41,7 +41,7 @@ jobs:
 
   build:
     name: Build
-    runs-on: arc-runner-ondemand
+    runs-on: arc-runner-x86-on-demand
     needs: test-and-lint
     defaults:
       run:
@@ -70,7 +70,7 @@ jobs:
 
   deploy:
     name: Deploy to GitHub Pages
-    runs-on: arc-runner-spot-arm64
+    runs-on: arc-runner-arm64-spot
     needs: build
     environment:
       name: github-pages
