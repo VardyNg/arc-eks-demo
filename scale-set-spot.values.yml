@@ -1,0 +1,20 @@
+githubConfigUrl: "https://github.com/VardyNg/MahjongL-API"
+githubConfigSecret: pre-defined-secret
+minRunners: 0
+maxRunners: 30
+
+template:
+  spec:
+    nodeSelector:
+      karpenter.sh/capacity-type: spot
+    containers:
+      - name: runner
+        image: ghcr.io/actions/actions-runner:latest
+        command: ["/home/runner/run.sh"]
+        resources:
+          requests:
+            cpu: "4"
+            memory: "8Gi"
+          limits:
+            cpu: "4"
+            memory: "8Gi"
