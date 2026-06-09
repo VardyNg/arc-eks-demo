@@ -52,6 +52,10 @@ The app is deployed to GitHub Pages automatically via the workflow. Ensure GitHu
 - Authenticated with GitHub, refer to [here](https://docs.github.com/en/actions/how-tos/manage-runners/use-actions-runner-controller/authenticate-to-the-api)
 - Helm, Kubectl
 
+### Deploy the NodePool
+```sh
+kubectl apply -f runner.nodepool.yml
+```
 ### Deploy ARC - Controller
 
 ```sh
@@ -61,7 +65,6 @@ helm install arc \
     --create-namespace \
     oci://ghcr.io/actions/actions-runner-controller-charts/gha-runner-scale-set-controller
 ```
-
 ### Deploy ARC - Runner Scale Set
 
 #### Authenticate to GitHub
