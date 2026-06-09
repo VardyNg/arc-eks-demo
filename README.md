@@ -86,27 +86,37 @@ kubectl create secret generic pre-defined-secret \
 
 Set the right environment variable:
 
-- On-demand
+- On-demand - x86
 
 ```sh
-INSTALLATION_NAME="arc-runner-ondemand"
-VALUES="scale-set-ondemand.values.yml"
+INSTALLATION_NAME="arc-runner-x86-on-demand"
+VALUES="scale-set-ondemand-x86.values.yml"
 ```
 
-- Spot
+- Spot - arm64
 
 ```sh
-INSTALLATION_NAME="arc-runner-spot"
-VALUES="scale-set-spot.values.yml"
+INSTALLATION_NAME="arc-runner-arm64-spot"
+VALUES="scale-set-spot-arm64.values.yml"
+```
+
+- Spot - amd64
+```sh
+INSTALLATION_NAME="arc-runner-x86-spot"
+VALUES="scale-set-spot-x86.values.yml"
 ```
 
 Deploy the chart:
 
 ```sh
-NAMESPACE="arc-runners"
 helm install "${INSTALLATION_NAME}" \
-    --namespace "${NAMESPACE}" \
+    --namespace arc-runners \
     --values "${VALUES}" \
     oci://ghcr.io/actions/actions-runner-controller-charts/gha-runner-scale-set
 ```
 
+Clean up the chart
+
+```
+helm uninstall "${INSTALLATION_NAME}" -n arc-runners
+```

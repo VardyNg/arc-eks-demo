@@ -1,4 +1,4 @@
-githubConfigUrl: "https://github.com/VardyNg/MahjongL-API"
+githubConfigUrl: "https://github.com/VardyNg/arc-eks-demo"
 githubConfigSecret: pre-defined-secret
 minRunners: 0
 maxRunners: 30
@@ -7,6 +7,7 @@ template:
   spec:
     nodeSelector:
       karpenter.sh/capacity-type: spot
+      kubernetes.io/arch: arm64
     containers:
       - name: runner
         image: ghcr.io/actions/actions-runner:latest
