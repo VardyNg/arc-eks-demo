@@ -9,8 +9,7 @@ listenerTemplate:
       karpenter.sh/capacity-type: on-demand
     containers:
       - name: listener
-        securityContext:
-          runAsUser: 1000
+        resources: {}
 
 template:
   spec:
