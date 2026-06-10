@@ -3,6 +3,15 @@ githubConfigSecret: pre-defined-secret
 minRunners: 0
 maxRunners: 30
 
+listenerTemplate:
+  spec:
+    nodeSelector:
+      karpenter.sh/capacity-type: on-demand
+    containers:
+      - name: listener
+        securityContext:
+          runAsUser: 1000
+
 template:
   spec:
     nodeSelector:

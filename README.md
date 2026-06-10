@@ -119,6 +119,15 @@ helm install "${INSTALLATION_NAME}" \
     oci://ghcr.io/actions/actions-runner-controller-charts/gha-runner-scale-set
 ```
 
+The subsequence upgrades for the chart
+
+```sh
+helm upgrade "${INSTALLATION_NAME}" \
+    --namespace arc-runners \
+    --values "${VALUES}" \
+    oci://ghcr.io/actions/actions-runner-controller-charts/gha-runner-scale-set
+```
+
 Clean up the chart
 
 ```
