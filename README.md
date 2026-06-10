@@ -63,6 +63,7 @@ NAMESPACE="arc-systems"
 helm install arc \
     --namespace "${NAMESPACE}" \
     --create-namespace \
+    --set "nodeSelector.karpenter\.sh/capacity-type=on-demand" \
     oci://ghcr.io/actions/actions-runner-controller-charts/gha-runner-scale-set-controller
 ```
 ### Deploy ARC - Runner Scale Set
