@@ -40,7 +40,7 @@ jobs:
 
   build:
     name: Build
-    runs-on: arc-runner-x86-on-demand
+    runs-on: arc-runner-arm64-spot
     needs: test-and-lint
     defaults:
       run:
@@ -69,7 +69,7 @@ jobs:
 
   deploy:
     name: Deploy to GitHub Pages
-    runs-on: arc-runner-arm64-spot
+    runs-on: arc-runner-x86-on-demand
     needs: build
     environment:
       name: github-pages
