@@ -22,8 +22,8 @@ template:
         command: ["/home/runner/run.sh"]
         resources:
           requests:
-            cpu: "4"
+            cpu: "3"
             memory: "8Gi"
           limits:
-            cpu: "4"
+            cpu: "3"
             memory: "8Gi"
